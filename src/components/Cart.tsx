@@ -2,6 +2,7 @@
 import React from 'react';
 import { useCart } from "./CartContext";
 
+
 const Cart = () => {
     const { cart, incrementQuantity, decrementQuantity, removeFromCart} = useCart();
 
@@ -23,9 +24,16 @@ const checkout = async () => {
   await fetch("http://localhost:3000/api/checkout", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({products: cart})
+  }).then((response) => {
+    return response.json();
+  }).then((response) => {
+    console.log(response);
+    if(response.url) {
+        // console.log(response.url)
+    }
   })
 };
 
