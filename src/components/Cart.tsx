@@ -17,8 +17,10 @@ const Cart = () => {
     if(product && product.quantity == 1) {
       removeFromCart(productId);
     }
+  };
 
-  }
+const checkout = async () => {};
+
 
 
   return <div className="border rounded-lg p-4 shadow-md">
@@ -54,15 +56,25 @@ const Cart = () => {
             ))}
           </ul>  
         )}
+
+{cart.length > 0 && (
+    <>
       <div className="mt-4">
         <p className="text-lg font-semibold">
-          Total Amount: {totalAmount.toFixed(2)}
+          Total Amount: ${totalAmount.toFixed(2)}
         </p>
       </div>
-      <button onClick={() => {}} className="mt-4 px-4 py-2 bg-green-500 text-white hover:bg-green-600 rounded focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ">
+
+      <button 
+        onClick={checkout} 
+        className="mt-4 px-4 py-2 bg-green-500 text-white hover:bg-green-600 rounded focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 "
+      >
         Buy Now
       </button>
-    </div>;
+    </>
+  )}
+  </div>;
+  
 };
 
 export default Cart;
