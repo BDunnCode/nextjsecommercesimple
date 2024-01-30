@@ -14,7 +14,7 @@ const Cart = () => {
   const handleDecrement = (productId: number) => {
     decrementQuantity(productId)
 
-    const product = cart.find((item:Product) => item.id === productId);
+    const product = cart.find((item:Product) => parseInt(item.id, 10) === productId);
     if(product && product.quantity == 1) {
       removeFromCart(productId);
     }
@@ -32,7 +32,7 @@ const checkout = async () => {
   }).then((response) => {
     console.log(response);
     if(response.url) {
-      window.location.href = response.url;
+      window.location.href = response.url
         // console.log(response.url)
     }
   })
@@ -57,13 +57,13 @@ const checkout = async () => {
                 </div>
                 <div className="flex space-x-2">
                   <button 
-                    onClick={() => handleDecrement(product.id)}
+                    onClick={() => handleDecrement(parseInt(product.id, 10))}
                     className="px-2 py-1 bg-red-500 text-white hover:bg-red-600 w-8 rounded"
                   >
                     -
                   </button>
                   <button 
-                    onClick={() => incrementQuantity(product.id)}
+                    onClick={() => incrementQuantity(parseInt(product.id, 10))}
                     className="px-2 py-1 bg-blue-500 text-white hover:bg-blue-600 w-8 rounded"
                   >
                     +
