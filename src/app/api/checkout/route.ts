@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
 // Get the products from within stripe that are currently marked active
@@ -71,8 +71,8 @@ export const POST = async(request: any) => {
       const session = await stripe.checkout.sessions.create({
         line_items: stripeItems,
         mode: "payment",
-        success_url: "https://localhost:3000/success",
-        cancel_url: "http://localhost:3000/cancel"
+        success_url: "https://master--spiffy-squirrel-2256f3.netlify.app/success",
+        cancel_url: "https://master--spiffy-squirrel-2256f3.netlify.app/cancel"
       })
     
       return NextResponse.json({ url: session.url });

@@ -21,7 +21,7 @@ const Cart = () => {
   };
 
 const checkout = async () => {
-  await fetch("http://localhost:3000/api/checkout", {
+  await fetch("https://master--spiffy-squirrel-2256f3.netlify.app/api/checkout", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
