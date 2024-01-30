@@ -26,7 +26,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({children}) => {
 
       if(existingProductIndex !== -1) {
         const updatedCart = [...cart];
-        updatedCart[existingProductIndex].quantity =+ 1;
+        updatedCart[existingProductIndex].quantity += 1;
         setCart(updatedCart);
       } else {
         setCart([...cart, {...product, quantity: 1}]);

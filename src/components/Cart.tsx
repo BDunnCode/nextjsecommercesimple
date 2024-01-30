@@ -32,6 +32,7 @@ const checkout = async () => {
   }).then((response) => {
     console.log(response);
     if(response.url) {
+      window.location.href = response.url;
         // console.log(response.url)
     }
   })
